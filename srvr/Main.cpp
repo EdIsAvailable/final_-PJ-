@@ -32,7 +32,7 @@ int main(int argc, char *argv[]) {
      return a.exec();
 }
 
-*/
+
 #include <QApplication>
 #include <QTimer>
 
@@ -52,6 +52,33 @@ int main(int argc, char *argv[]) {
     QTimer::singleShot(0, []() {
         _server->MainProcess();
     });
+
+    return a.exec();
+}
+*/
+
+#include <QApplication>
+#include <QDebug>
+#include "mainwindow.h"
+
+int main(int argc, char *argv[])
+{
+    QApplication a(argc, argv);
+
+    // Устанавливаем информацию о приложении
+    QApplication::setApplicationName("Chat Application");
+    QApplication::setApplicationVersion("1.0");
+
+    // Безопасно обрабатываем аргумент командной строки (если есть)
+    if (argc > 1) {
+        QString str = QString::fromUtf8(argv[1]);
+        QByteArray ba = str.toUtf8();
+        qDebug() << "Аргумент:" << str;
+    }
+
+    // Создаем и показываем главное окно
+    MainWindow w;
+    w.show();
 
     return a.exec();
 }
