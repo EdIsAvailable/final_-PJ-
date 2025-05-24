@@ -52,7 +52,6 @@ void MainWindow::on_actionCloseClient_triggered()
 }
 
 */
-
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "startscreen.h"
@@ -137,7 +136,7 @@ void MainWindow::updateUsersList()
 
     // Здесь нужно загрузить список пользователей из БД
     // и добавить их в userListWidget
-    // Это упрощенная версия, вам потребуется доработать ее
+    // Доработать
 
     try {
         auto con = connectToDatabase();

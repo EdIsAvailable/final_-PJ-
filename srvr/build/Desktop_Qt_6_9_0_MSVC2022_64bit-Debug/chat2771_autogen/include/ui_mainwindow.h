@@ -32,6 +32,7 @@ class Ui_MainWindow
 public:
     QAction *actionOpen_another_client;
     QAction *actionCloseClient;
+    QAction *userListWidget;
     QWidget *centralwidget;
     QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout;
@@ -55,6 +56,8 @@ public:
         actionOpen_another_client->setObjectName("actionOpen_another_client");
         actionCloseClient = new QAction(MainWindow);
         actionCloseClient->setObjectName("actionCloseClient");
+        userListWidget = new QAction(MainWindow);
+        userListWidget->setObjectName("userListWidget");
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         verticalLayout = new QVBoxLayout(centralwidget);
@@ -112,6 +115,7 @@ public:
         menuMain_menu->addAction(actionOpen_another_client);
         menuMain_menu->addSeparator();
         menuMain_menu->addAction(actionCloseClient);
+        menuMain_menu->addAction(userListWidget);
 
         retranslateUi(MainWindow);
 
@@ -123,6 +127,7 @@ public:
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         actionOpen_another_client->setText(QCoreApplication::translate("MainWindow", "Open another client", nullptr));
         actionCloseClient->setText(QCoreApplication::translate("MainWindow", "Close Client", nullptr));
+        userListWidget->setText(QCoreApplication::translate("MainWindow", "User List", nullptr));
         label->setText(QCoreApplication::translate("MainWindow", "Your mesage", nullptr));
         sendMessageButton->setText(QCoreApplication::translate("MainWindow", "Send to all", nullptr));
         privateMessageSendButton->setText(QCoreApplication::translate("MainWindow", "Send private", nullptr));

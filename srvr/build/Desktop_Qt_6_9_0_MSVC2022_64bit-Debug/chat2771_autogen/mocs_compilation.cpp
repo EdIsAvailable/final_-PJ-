@@ -3,3 +3,4 @@
 #include "EWIEGA46WW/moc_mainwindow.cpp"
 #include "EWIEGA46WW/moc_registrationform.cpp"
 #include "EWIEGA46WW/moc_startscreen.cpp"
+#include "EWIEGA46WW/moc_userlist.cpp"

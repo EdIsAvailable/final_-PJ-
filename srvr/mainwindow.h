@@ -39,6 +39,10 @@ private:
 #include "Chat.h"
 #include "Acc.h"
 #include "db.h"
+#include "Message.h"
+#include "Server.h"
+#include "Socket.h"
+#include "db.h"
 
 namespace Ui {
 class MainWindow;

@@ -29,7 +29,6 @@ private:
 
 #endif // REGISTRATIONFORM_H
 */
-
 #ifndef REGISTRATIONFORM_H
 #define REGISTRATIONFORM_H
 

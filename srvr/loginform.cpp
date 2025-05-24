@@ -32,7 +32,6 @@ void LoginForm::on_registrationPushButton_clicked()
 
 }
 */
-
 #include "loginform.h"
 #include "ui_loginform.h"
 #include "UserRepository.h"

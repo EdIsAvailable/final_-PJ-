@@ -30,7 +30,6 @@ private:
 
 #endif // LOGINFORM_H
 */
-
 #ifndef LOGINFORM_H
 #define LOGINFORM_H
 
@@ -58,7 +57,6 @@ private slots:
     void on_buttonBox_accepted();
     void on_buttonBox_rejected();
     void on_registrationPushButton_clicked();
-
 private:
     Ui::LoginForm *ui;
     QLineEdit *loginEdit;
