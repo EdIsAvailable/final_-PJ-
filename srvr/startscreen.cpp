@@ -1,13 +1,24 @@
+
 #include "startscreen.h"
 #include "ui_startscreen.h"
 
-StartScreen::StartScreen(QWidget *parent):
+StartScreen::StartScreen(std::shared_ptr<Database> dbPtr, QWidget *parent):
     QDialog(parent),
     ui(new Ui::StartScreen)
 {
     ui->setupUi(this);
+    if(dbPtr)
+        m_dbPtr = dbPtr;
+    else
+        m_dbPtr = make_shared<Database>();
+
+    ui->loginWidget->setDatabase(m_dbPtr);
+    ui->registerWidget->setDatabase(m_dbPtr);
+
     connect(ui->loginWidget, &LoginForm::registerRequested, this, &StartScreen::setRegistrationForm);
+    connect(ui->loginWidget, &LoginForm::accepted, this, &StartScreen::onLoggedIn);
     connect(ui->registerWidget, &RegistrationForm::loginRequested, this, &StartScreen::setLoginForm);
+    connect(ui->registerWidget, &RegistrationForm::accepted, this, &StartScreen::onLoggedIn);
 }
 
 
@@ -24,4 +35,20 @@ void StartScreen::setLoginForm()
 void StartScreen::setRegistrationForm()
 {
     ui->stackedWidget->setCurrentIndex(1);
+}
+
+void StartScreen::onLoggedIn(uint userId, QString userName)
+{
+    m_userId = userId;
+    m_userName = userName;
+}
+
+QString StartScreen::userName() const
+{
+    return m_userName;
+}
+
+int StartScreen::userId() const
+{
+    return m_userId;
 }

@@ -11,8 +11,8 @@ using namespace std;
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    MainWindow w;
-    w.show();
+    auto w = MainWindow::createClient();
+    w->show();
 
     //	cout << "Usage:" << endl;
     //	cout << "!login[username][password] - log in" << endl;
