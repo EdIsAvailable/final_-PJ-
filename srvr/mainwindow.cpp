@@ -109,8 +109,9 @@ void MainWindow::updateChats()
     QString chat;
     for(const auto &msg : chatMessages)
     {
-        chat.append(QString:: fromStdString(msg) + "\r\m");
+        chat.append(QString:: fromStdString(msg) + "\n");
     }
+    if(ui->commonChatBrowser->toPlainText()!= chat)
     ui->commonChatBrowser->setText(chat);
     chat.clear();
     auto privateMessages = m_dbPtr-> getPrivateMessage();
@@ -131,8 +132,10 @@ void MainWindow::updateChats()
     {
         prefix = "<" + QString::fromStdString(msg.getSender()) + "> " + tr("say to you") + ": ";
         }
-        chat.append(prefix + QString::fromStdString(msg.getText()) + "\r\n");
+        chat.append(prefix + QString::fromStdString(msg.getText()) + "\n");
     }
+    auto current = ui->privateChatBrowser->toPlainText();
+    if(ui->privateChatBrowser->toPlainText()!= chat)
     ui->privateChatBrowser->setText(chat);
 }
 
