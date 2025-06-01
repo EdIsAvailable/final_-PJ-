@@ -44,7 +44,7 @@ MainWindow *MainWindow::createClient(std::shared_ptr<Database> dbPtr)
    {
        return nullptr;
    }
-    auto w = new MainWindow(s.userId(), s.userName(), dbPtr);
+    auto w = new MainWindow(s.userId(), s.userName(), s.getDatabase());
    w->setAttribute(Qt::WA_DeleteOnClose);
    return w;
 }
