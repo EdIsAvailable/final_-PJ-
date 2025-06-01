@@ -24,31 +24,31 @@ class Ui_StartScreen
 public:
     QVBoxLayout *verticalLayout;
     QStackedWidget *stackedWidget;
-    LoginForm *page;
-    RegistrationForm *page_2;
+    LoginForm *loginWidget;
+    RegistrationForm *registerWidget;
 
     void setupUi(QDialog *StartScreen)
     {
         if (StartScreen->objectName().isEmpty())
             StartScreen->setObjectName("StartScreen");
-        StartScreen->resize(400, 300);
+        StartScreen->resize(671, 393);
         verticalLayout = new QVBoxLayout(StartScreen);
         verticalLayout->setObjectName("verticalLayout");
         stackedWidget = new QStackedWidget(StartScreen);
         stackedWidget->setObjectName("stackedWidget");
-        page = new LoginForm();
-        page->setObjectName("page");
-        stackedWidget->addWidget(page);
-        page_2 = new RegistrationForm();
-        page_2->setObjectName("page_2");
-        stackedWidget->addWidget(page_2);
+        loginWidget = new LoginForm();
+        loginWidget->setObjectName("loginWidget");
+        stackedWidget->addWidget(loginWidget);
+        registerWidget = new RegistrationForm();
+        registerWidget->setObjectName("registerWidget");
+        stackedWidget->addWidget(registerWidget);
 
         verticalLayout->addWidget(stackedWidget);
 
 
         retranslateUi(StartScreen);
 
-        stackedWidget->setCurrentIndex(0);
+        stackedWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(StartScreen);

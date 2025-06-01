@@ -30,9 +30,9 @@ public:
     QVBoxLayout *verticalLayout;
     QFormLayout *formLayout;
     QLabel *label;
-    QLineEdit *loginEdit;
     QLabel *label_2;
-    QLineEdit *passwordEdit_2;
+    QLineEdit *loginEdit;
+    QLineEdit *lpasswordEdit;
     QSpacerItem *verticalSpacer;
     QHBoxLayout *horizontalLayout;
     QDialogButtonBox *buttonBox;
@@ -52,28 +52,28 @@ public:
 
         formLayout->setWidget(0, QFormLayout::ItemRole::LabelRole, label);
 
-        loginEdit = new QLineEdit(LoginForm);
-        loginEdit->setObjectName("loginEdit");
-
-        formLayout->setWidget(0, QFormLayout::ItemRole::FieldRole, loginEdit);
-
         label_2 = new QLabel(LoginForm);
         label_2->setObjectName("label_2");
 
         formLayout->setWidget(1, QFormLayout::ItemRole::LabelRole, label_2);
 
-        passwordEdit_2 = new QLineEdit(LoginForm);
-        passwordEdit_2->setObjectName("passwordEdit_2");
-        passwordEdit_2->setEchoMode(QLineEdit::EchoMode::Password);
+        loginEdit = new QLineEdit(LoginForm);
+        loginEdit->setObjectName("loginEdit");
 
-        formLayout->setWidget(1, QFormLayout::ItemRole::FieldRole, passwordEdit_2);
+        formLayout->setWidget(0, QFormLayout::ItemRole::FieldRole, loginEdit);
 
+        lpasswordEdit = new QLineEdit(LoginForm);
+        lpasswordEdit->setObjectName("lpasswordEdit");
+        lpasswordEdit->setEchoMode(QLineEdit::EchoMode::Password);
 
-        verticalLayout->addLayout(formLayout);
+        formLayout->setWidget(1, QFormLayout::ItemRole::FieldRole, lpasswordEdit);
 
         verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
 
-        verticalLayout->addItem(verticalSpacer);
+        formLayout->setItem(2, QFormLayout::ItemRole::FieldRole, verticalSpacer);
+
+
+        verticalLayout->addLayout(formLayout);
 
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName("horizontalLayout");
@@ -88,6 +88,7 @@ public:
 
         horizontalLayout->addWidget(registrationPushButton);
 
+        horizontalLayout->setStretch(0, 1);
 
         verticalLayout->addLayout(horizontalLayout);
 

@@ -1,25 +1,23 @@
 #pragma once
-#include <iostream>
 #include <string>
-#include <ctime>
-
-using namespace std;
-
 
 class Message
 {
-	string _userFrom, _userTo, _text;
-	time_t _now;
+	static int num;		//уникальный номер, который получает id
+	static int messageCounter;
+	int _id;
+	std::string _sender;
+	int _destID;
+	std::string _text;
 public:
-	// Конструктор класса Message создаёт сообщение в котором указываем отправителя, получателя и тело сообщения, дата и время отправленного сообщения добавляется автоматически
-	Message(string userFrom, string userTo, string text);
-	// Показать сообщение, которое хранится в классе
-	void Show(void);
-	// Получить имя получателя сообщения
-	string getUserTo(void);
-	// Получить имя отправителя сообщения
-	string getUserFrom(void);
-	~Message();
+	Message();
+	Message(std::string writer, std::string text);//сообщение в чат
+	Message(std::string writer, int target, std::string text);//личное сообщение
+
+  bool searchByTarget(int) const;
+  std::string getSender() const;
+  int getDest() const;
+  int getID() const;
+  std::string getText() const;
+
 };
-
-

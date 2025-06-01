@@ -1,28 +1,26 @@
-
 #ifndef REGISTRATIONFORM_H
 #define REGISTRATIONFORM_H
 
 #include <QWidget>
-#include <QLineEdit>
-#include "Acc.h"
-#include "UserRepository.h"
-#include <QDialog>
+#include <memory>
+#include "Database.h"
 
 namespace Ui {
 class RegistrationForm;
 }
 
-//class RegistrationForm : public QWidget
-class RegistrationForm : public QDialog{
+class RegistrationForm : public QWidget
+{
     Q_OBJECT
 
 public:
     explicit RegistrationForm(QWidget *parent = nullptr);
     ~RegistrationForm();
-
-    bool isRegistrationSuccessful() const;
-    Acc* getUser() const;
-
+    void setDatabase(std::shared_ptr<Database> dbPtr);
+signals:
+    void loginRequested();
+    void accepted(int userId, QString userName);
+    void rejected();
 private slots:
     void on_loginButton_clicked();
     void on_buttonBox_accepted();
@@ -30,13 +28,7 @@ private slots:
 
 private:
     Ui::RegistrationForm *ui;
-    QLineEdit *nameEdit;
-    QLineEdit *loginEdit;
-    QLineEdit *passwordEdit;
-    QLineEdit *confirmPasswordEdit;
-    UserRepository *_userRepo;
-    Acc* _user = nullptr;
-    bool _registrationSuccessful = false;
+    std::shared_ptr<Database> m_dbPtr;
 };
 
 #endif // REGISTRATIONFORM_H

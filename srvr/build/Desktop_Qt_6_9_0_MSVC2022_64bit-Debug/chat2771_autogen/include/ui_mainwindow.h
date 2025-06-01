@@ -30,34 +30,32 @@ QT_BEGIN_NAMESPACE
 class Ui_MainWindow
 {
 public:
-    QAction *actionOpen_another_client;
-    QAction *actionCloseClient;
-    QAction *userListWidget;
+    QAction *actionclose_client;
+    QAction *actionadd_new_client;
     QWidget *centralwidget;
     QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout;
     QLabel *label;
-    QLineEdit *messageLineEdit;
+    QLineEdit *messagLineEdit;
     QPushButton *sendMessageButton;
     QPushButton *privateMessageSendButton;
     QSplitter *splitter;
     QTextBrowser *commonChatBrowser;
     QTextBrowser *privateChatBrowser;
     QMenuBar *menubar;
-    QMenu *menuMain_menu;
+    QMenu *menuMenu;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(522, 360);
-        actionOpen_another_client = new QAction(MainWindow);
-        actionOpen_another_client->setObjectName("actionOpen_another_client");
-        actionCloseClient = new QAction(MainWindow);
-        actionCloseClient->setObjectName("actionCloseClient");
-        userListWidget = new QAction(MainWindow);
-        userListWidget->setObjectName("userListWidget");
+        MainWindow->resize(800, 600);
+        MainWindow->setAutoFillBackground(false);
+        actionclose_client = new QAction(MainWindow);
+        actionclose_client->setObjectName("actionclose_client");
+        actionadd_new_client = new QAction(MainWindow);
+        actionadd_new_client->setObjectName("actionadd_new_client");
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         verticalLayout = new QVBoxLayout(centralwidget);
@@ -69,10 +67,10 @@ public:
 
         horizontalLayout->addWidget(label);
 
-        messageLineEdit = new QLineEdit(centralwidget);
-        messageLineEdit->setObjectName("messageLineEdit");
+        messagLineEdit = new QLineEdit(centralwidget);
+        messagLineEdit->setObjectName("messagLineEdit");
 
-        horizontalLayout->addWidget(messageLineEdit);
+        horizontalLayout->addWidget(messagLineEdit);
 
         sendMessageButton = new QPushButton(centralwidget);
         sendMessageButton->setObjectName("sendMessageButton");
@@ -103,19 +101,17 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 522, 21));
-        menuMain_menu = new QMenu(menubar);
-        menuMain_menu->setObjectName("menuMain_menu");
+        menubar->setGeometry(QRect(0, 0, 800, 21));
+        menuMenu = new QMenu(menubar);
+        menuMenu->setObjectName("menuMenu");
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
         MainWindow->setStatusBar(statusbar);
 
-        menubar->addAction(menuMain_menu->menuAction());
-        menuMain_menu->addAction(actionOpen_another_client);
-        menuMain_menu->addSeparator();
-        menuMain_menu->addAction(actionCloseClient);
-        menuMain_menu->addAction(userListWidget);
+        menubar->addAction(menuMenu->menuAction());
+        menuMenu->addAction(actionadd_new_client);
+        menuMenu->addAction(actionclose_client);
 
         retranslateUi(MainWindow);
 
@@ -125,13 +121,12 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
-        actionOpen_another_client->setText(QCoreApplication::translate("MainWindow", "Open another client", nullptr));
-        actionCloseClient->setText(QCoreApplication::translate("MainWindow", "Close Client", nullptr));
-        userListWidget->setText(QCoreApplication::translate("MainWindow", "User List", nullptr));
-        label->setText(QCoreApplication::translate("MainWindow", "Your mesage", nullptr));
-        sendMessageButton->setText(QCoreApplication::translate("MainWindow", "Send to all", nullptr));
+        actionclose_client->setText(QCoreApplication::translate("MainWindow", "close client", nullptr));
+        actionadd_new_client->setText(QCoreApplication::translate("MainWindow", "add new client", nullptr));
+        label->setText(QCoreApplication::translate("MainWindow", "Your message:", nullptr));
+        sendMessageButton->setText(QCoreApplication::translate("MainWindow", "Sand to all", nullptr));
         privateMessageSendButton->setText(QCoreApplication::translate("MainWindow", "Send private", nullptr));
-        menuMain_menu->setTitle(QCoreApplication::translate("MainWindow", "Main menu", nullptr));
+        menuMenu->setTitle(QCoreApplication::translate("MainWindow", "Menu", nullptr));
     } // retranslateUi
 
 };

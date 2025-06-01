@@ -39,31 +39,25 @@ template <> constexpr inline auto MainWindow::qt_create_metaobjectdata<qt_meta_t
     namespace QMC = QtMocConstants;
     QtMocHelpers::StringRefStorage qt_stringData {
         "MainWindow",
-        "on_messageLineEdit_returnPressed",
+        "on_messagLineEdit_returnPressed",
         "",
         "on_sendMessageButton_clicked",
         "on_privateMessageSendButton_clicked",
-        "on_actionOpen_another_client_triggered",
-        "on_actionCloseClient_triggered",
-        "showStartScreen",
-        "on_refreshButton_clicked"
+        "on_actionclose_client_triggered",
+        "on_actionadd_new_client_triggered"
     };
 
     QtMocHelpers::UintData qt_methods {
-        // Slot 'on_messageLineEdit_returnPressed'
+        // Slot 'on_messagLineEdit_returnPressed'
         QtMocHelpers::SlotData<void()>(1, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'on_sendMessageButton_clicked'
         QtMocHelpers::SlotData<void()>(3, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'on_privateMessageSendButton_clicked'
         QtMocHelpers::SlotData<void()>(4, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'on_actionOpen_another_client_triggered'
+        // Slot 'on_actionclose_client_triggered'
         QtMocHelpers::SlotData<void()>(5, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'on_actionCloseClient_triggered'
+        // Slot 'on_actionadd_new_client_triggered'
         QtMocHelpers::SlotData<void()>(6, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'showStartScreen'
-        QtMocHelpers::SlotData<void()>(7, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'on_refreshButton_clicked'
-        QtMocHelpers::SlotData<void()>(8, 2, QMC::AccessPrivate, QMetaType::Void),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -87,13 +81,11 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
     auto *_t = static_cast<MainWindow *>(_o);
     if (_c == QMetaObject::InvokeMetaMethod) {
         switch (_id) {
-        case 0: _t->on_messageLineEdit_returnPressed(); break;
+        case 0: _t->on_messagLineEdit_returnPressed(); break;
         case 1: _t->on_sendMessageButton_clicked(); break;
         case 2: _t->on_privateMessageSendButton_clicked(); break;
-        case 3: _t->on_actionOpen_another_client_triggered(); break;
-        case 4: _t->on_actionCloseClient_triggered(); break;
-        case 5: _t->showStartScreen(); break;
-        case 6: _t->on_refreshButton_clicked(); break;
+        case 3: _t->on_actionclose_client_triggered(); break;
+        case 4: _t->on_actionadd_new_client_triggered(); break;
         default: ;
         }
     }
@@ -119,14 +111,14 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 7)
+        if (_id < 5)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 7;
+        _id -= 5;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 7)
+        if (_id < 5)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 7;
+        _id -= 5;
     }
     return _id;
 }

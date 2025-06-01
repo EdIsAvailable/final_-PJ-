@@ -30,10 +30,10 @@ public:
     QVBoxLayout *verticalLayout;
     QFormLayout *formLayout;
     QLabel *label;
-    QLabel *label_2;
-    QLabel *label_3;
     QLineEdit *loginEdit;
+    QLabel *label_2;
     QLineEdit *passwordEdit;
+    QLabel *label_3;
     QLineEdit *passwordConfirmEdit;
     QSpacerItem *verticalSpacer;
     QHBoxLayout *horizontalLayout;
@@ -44,7 +44,7 @@ public:
     {
         if (RegistrationForm->objectName().isEmpty())
             RegistrationForm->setObjectName("RegistrationForm");
-        RegistrationForm->resize(272, 142);
+        RegistrationForm->resize(376, 142);
         verticalLayout = new QVBoxLayout(RegistrationForm);
         verticalLayout->setObjectName("verticalLayout");
         formLayout = new QFormLayout();
@@ -54,20 +54,15 @@ public:
 
         formLayout->setWidget(0, QFormLayout::ItemRole::LabelRole, label);
 
-        label_2 = new QLabel(RegistrationForm);
-        label_2->setObjectName("label_2");
-
-        formLayout->setWidget(1, QFormLayout::ItemRole::LabelRole, label_2);
-
-        label_3 = new QLabel(RegistrationForm);
-        label_3->setObjectName("label_3");
-
-        formLayout->setWidget(2, QFormLayout::ItemRole::LabelRole, label_3);
-
         loginEdit = new QLineEdit(RegistrationForm);
         loginEdit->setObjectName("loginEdit");
 
         formLayout->setWidget(0, QFormLayout::ItemRole::FieldRole, loginEdit);
+
+        label_2 = new QLabel(RegistrationForm);
+        label_2->setObjectName("label_2");
+
+        formLayout->setWidget(1, QFormLayout::ItemRole::LabelRole, label_2);
 
         passwordEdit = new QLineEdit(RegistrationForm);
         passwordEdit->setObjectName("passwordEdit");
@@ -75,18 +70,23 @@ public:
 
         formLayout->setWidget(1, QFormLayout::ItemRole::FieldRole, passwordEdit);
 
+        label_3 = new QLabel(RegistrationForm);
+        label_3->setObjectName("label_3");
+
+        formLayout->setWidget(2, QFormLayout::ItemRole::LabelRole, label_3);
+
         passwordConfirmEdit = new QLineEdit(RegistrationForm);
         passwordConfirmEdit->setObjectName("passwordConfirmEdit");
         passwordConfirmEdit->setEchoMode(QLineEdit::EchoMode::Password);
 
         formLayout->setWidget(2, QFormLayout::ItemRole::FieldRole, passwordConfirmEdit);
 
-
-        verticalLayout->addLayout(formLayout);
-
         verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
 
-        verticalLayout->addItem(verticalSpacer);
+        formLayout->setItem(3, QFormLayout::ItemRole::FieldRole, verticalSpacer);
+
+
+        verticalLayout->addLayout(formLayout);
 
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName("horizontalLayout");
@@ -104,9 +104,9 @@ public:
 
         verticalLayout->addLayout(horizontalLayout);
 
-        QWidget::setTabOrder(loginEdit, passwordEdit);
-        QWidget::setTabOrder(passwordEdit, passwordConfirmEdit);
-        QWidget::setTabOrder(passwordConfirmEdit, loginButton);
+        QWidget::setTabOrder(loginButton, loginEdit);
+        QWidget::setTabOrder(loginEdit, passwordConfirmEdit);
+        QWidget::setTabOrder(passwordConfirmEdit, passwordEdit);
 
         retranslateUi(RegistrationForm);
 
@@ -116,9 +116,9 @@ public:
     void retranslateUi(QWidget *RegistrationForm)
     {
         RegistrationForm->setWindowTitle(QCoreApplication::translate("RegistrationForm", "Form", nullptr));
-        label->setText(QCoreApplication::translate("RegistrationForm", "Login", nullptr));
-        label_2->setText(QCoreApplication::translate("RegistrationForm", "Password", nullptr));
-        label_3->setText(QCoreApplication::translate("RegistrationForm", "Confirm password", nullptr));
+        label->setText(QCoreApplication::translate("RegistrationForm", "Login:", nullptr));
+        label_2->setText(QCoreApplication::translate("RegistrationForm", "Password:", nullptr));
+        label_3->setText(QCoreApplication::translate("RegistrationForm", "Confirm password:", nullptr));
         loginButton->setText(QCoreApplication::translate("RegistrationForm", "Login", nullptr));
     } // retranslateUi
 

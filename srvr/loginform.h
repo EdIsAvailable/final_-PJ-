@@ -1,8 +1,9 @@
-/*
 #ifndef LOGINFORM_H
 #define LOGINFORM_H
 
 #include <QWidget>
+#include <memory>
+#include "Database.h"
 
 namespace Ui {
 class LoginForm;
@@ -15,56 +16,19 @@ class LoginForm : public QWidget
 public:
     explicit LoginForm(QWidget *parent = nullptr);
     ~LoginForm();
-
-private slots:
-
-    void on_buttonBox_accepted();
-
-    void on_buttonBox_rejected();
-
-    void on_registrationPushButton_clicked();
-
-private:
-    Ui::LoginForm *ui;
-};
-
-#endif // LOGINFORM_H
-*/
-#ifndef LOGINFORM_H
-#define LOGINFORM_H
-
-#include <QWidget>
-#include <QLineEdit>
-#include "Acc.h"
-#include "UserRepository.h"
-#include <QDialog>
-
-namespace Ui {
-class LoginForm;
-}
-
-class LoginForm : public QDialog
-{
-    Q_OBJECT
-
-public:
-    explicit LoginForm(QWidget *parent = nullptr);
-    ~LoginForm();
-
-    bool isLoginSuccessful() const;
-    Acc* getUser() const;
-
+    void setDatabase(std::shared_ptr<Database> dbPtr);
+signals:
+    void registerRequested();
+    void accepted(size_t userId, const QString& login);
+    void rejected();
 private slots:
     void on_buttonBox_accepted();
     void on_buttonBox_rejected();
     void on_registrationPushButton_clicked();
+
 private:
     Ui::LoginForm *ui;
-    QLineEdit *loginEdit;
-    QLineEdit *passwordEdit;
-    UserRepository *_userRepo;
-    Acc* _user = nullptr;
-    bool _loginSuccessful = false;
+     std::shared_ptr<Database> m_dbPtr;
 };
 
 #endif // LOGINFORM_H
