@@ -15,6 +15,7 @@ public:
     explicit MainWindow(std::shared_ptr<Database> dbPtr = nullptr, QWidget *parent = nullptr);
     ~MainWindow();
     static MainWindow *createClient(std::shared_ptr<Database> dbPtr = nullptr);
+    static int kInstanceCount;
 private slots:
     void on_messagLineEdit_returnPressed();
     void on_sendMessageButton_clicked();

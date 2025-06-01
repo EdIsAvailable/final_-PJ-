@@ -23,7 +23,7 @@ public:
 
 public slots:
     void onLoggedIn(uint userId, QString userName);
-
+    void onRejectRequested();
 private:
     Ui::StartScreen *ui;
     int m_userId;

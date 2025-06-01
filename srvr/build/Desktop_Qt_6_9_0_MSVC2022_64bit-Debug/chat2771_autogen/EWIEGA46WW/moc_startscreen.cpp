@@ -42,7 +42,8 @@ template <> constexpr inline auto StartScreen::qt_create_metaobjectdata<qt_meta_
         "onLoggedIn",
         "",
         "userId",
-        "userName"
+        "userName",
+        "onRejectRequested"
     };
 
     QtMocHelpers::UintData qt_methods {
@@ -50,6 +51,8 @@ template <> constexpr inline auto StartScreen::qt_create_metaobjectdata<qt_meta_
         QtMocHelpers::SlotData<void(uint, QString)>(1, 2, QMC::AccessPublic, QMetaType::Void, {{
             { QMetaType::UInt, 3 }, { QMetaType::QString, 4 },
         }}),
+        // Slot 'onRejectRequested'
+        QtMocHelpers::SlotData<void()>(5, 2, QMC::AccessPublic, QMetaType::Void),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -74,6 +77,7 @@ void StartScreen::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
     if (_c == QMetaObject::InvokeMetaMethod) {
         switch (_id) {
         case 0: _t->onLoggedIn((*reinterpret_cast< std::add_pointer_t<uint>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2]))); break;
+        case 1: _t->onRejectRequested(); break;
         default: ;
         }
     }
@@ -98,14 +102,14 @@ int StartScreen::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 1)
+        if (_id < 2)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 1;
+        _id -= 2;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 1)
+        if (_id < 2)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 1;
+        _id -= 2;
     }
     return _id;
 }
