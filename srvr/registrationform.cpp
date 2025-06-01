@@ -44,7 +44,8 @@ void RegistrationForm::on_buttonBox_rejected()
 #include <QPushButton>
 
 RegistrationForm::RegistrationForm(QWidget *parent)
-    : QWidget(parent)
+   // : QWidget(parent)
+    : QDialog(parent)
     , ui(new Ui::RegistrationForm)
 {
     ui->setupUi(this);
@@ -156,7 +157,8 @@ void RegistrationForm::on_buttonBox_accepted()
 
         QMessageBox::information(this, "Успех", "Регистрация выполнена успешно!");
         _registrationSuccessful = true;
-        close();
+        //close();
+        accept();
     }
     catch (const char* errorMsg) {
         QMessageBox::critical(this, "Ошибка", QString::fromUtf8(errorMsg));
@@ -168,7 +170,8 @@ void RegistrationForm::on_buttonBox_accepted()
 
 void RegistrationForm::on_buttonBox_rejected()
 {
-    close();
+    //close();
+    reject();
 }
 
 bool RegistrationForm::isRegistrationSuccessful() const

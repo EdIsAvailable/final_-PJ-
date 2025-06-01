@@ -1,34 +1,4 @@
-/*
-#ifndef REGISTRATIONFORM_H
-#define REGISTRATIONFORM_H
 
-#include <QWidget>
-
-namespace Ui {
-class RegistrationForm;
-}
-
-class RegistrationForm : public QWidget
-{
-    Q_OBJECT
-
-public:
-    explicit RegistrationForm(QWidget *parent = nullptr);
-    ~RegistrationForm();
-
-private slots:
-    void on_loginButton_clicked();
-
-    void on_buttonBox_accepted();
-
-    void on_buttonBox_rejected();
-
-private:
-    Ui::RegistrationForm *ui;
-};
-
-#endif // REGISTRATIONFORM_H
-*/
 #ifndef REGISTRATIONFORM_H
 #define REGISTRATIONFORM_H
 
@@ -36,13 +6,14 @@ private:
 #include <QLineEdit>
 #include "Acc.h"
 #include "UserRepository.h"
+#include <QDialog>
 
 namespace Ui {
 class RegistrationForm;
 }
 
-class RegistrationForm : public QWidget
-{
+//class RegistrationForm : public QWidget
+class RegistrationForm : public QDialog{
     Q_OBJECT
 
 public:

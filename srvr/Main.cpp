@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
     // Безопасно обрабатываем аргумент командной строки (для тестов)
     if (argc > 1) {
         QString str = QString::fromUtf8(argv[1]);
-        QByteArray ba = str.toUtf8();
+    //QByteArray ba = str.toUtf8();
         qDebug() << "Аргумент:" << str;
     }
 

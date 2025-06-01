@@ -62,7 +62,7 @@ template <> constexpr inline auto RegistrationForm::qt_create_metaobjectdata<qt_
             qt_methods, qt_properties, qt_enums);
 }
 Q_CONSTINIT const QMetaObject RegistrationForm::staticMetaObject = { {
-    QMetaObject::SuperData::link<QWidget::staticMetaObject>(),
+    QMetaObject::SuperData::link<QDialog::staticMetaObject>(),
     qt_staticMetaObjectStaticContent<qt_meta_tag_ZN16RegistrationFormE_t>.stringdata,
     qt_staticMetaObjectStaticContent<qt_meta_tag_ZN16RegistrationFormE_t>.data,
     qt_static_metacall,
@@ -95,12 +95,12 @@ void *RegistrationForm::qt_metacast(const char *_clname)
     if (!_clname) return nullptr;
     if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN16RegistrationFormE_t>.strings))
         return static_cast<void*>(this);
-    return QWidget::qt_metacast(_clname);
+    return QDialog::qt_metacast(_clname);
 }
 
 int RegistrationForm::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
-    _id = QWidget::qt_metacall(_c, _id, _a);
+    _id = QDialog::qt_metacall(_c, _id, _a);
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {

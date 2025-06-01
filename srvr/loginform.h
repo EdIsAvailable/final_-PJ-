@@ -37,12 +37,13 @@ private:
 #include <QLineEdit>
 #include "Acc.h"
 #include "UserRepository.h"
+#include <QDialog>
 
 namespace Ui {
 class LoginForm;
 }
 
-class LoginForm : public QWidget
+class LoginForm : public QDialog
 {
     Q_OBJECT
 
